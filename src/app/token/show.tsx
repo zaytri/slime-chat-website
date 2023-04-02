@@ -21,7 +21,7 @@ export default function TokenShow({ token }: TokenShowProps) {
           <ButtonText>{copied ? 'Copied!' : 'Copy Token'}</ButtonText>
         </Button>
       </div>
-      <p className='mt-3 rounded-lg border-2 border-lime-700 bg-lime-100 px-5 py-3 text-center text-xl'>
+      <p className='mt-3 break-all rounded-lg border-2 border-lime-700 bg-lime-100 px-5 py-3 text-center text-xl'>
         <strong>{token}</strong>
       </p>
       <Button

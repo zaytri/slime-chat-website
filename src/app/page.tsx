@@ -3,7 +3,7 @@ import Button, { ButtonText } from '@/components/button'
 export default function Home() {
   return (
     <div className='space-y-5'>
-      <h1 className='mb-7 text-center font-round text-4xl font-medium'>
+      <h1 className='mb-7 text-center font-round text-3xl font-medium'>
         Welcome to SlimeChat!
       </h1>
       <Button

@@ -38,7 +38,7 @@ export default function Token() {
 
   return (
     <>
-      <h1 className='mb-7 text-center font-round text-4xl font-medium'>
+      <h1 className='mb-7 text-center font-round text-3xl font-medium'>
         Authentication Token
       </h1>
       {token ? (
