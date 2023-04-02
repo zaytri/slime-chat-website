@@ -59,7 +59,7 @@ export default function Token() {
         <div className='space-y-3'>
           <TokenPermission title='View stream chat messages'>
             <ul className='ml-4 list-outside list-disc'>
-              <li>Used to get your stream's chat messages</li>
+              <li>{`Used to get your stream's chat messages`}</li>
             </ul>
           </TokenPermission>
           <TokenPermission title='View list of followers'>
