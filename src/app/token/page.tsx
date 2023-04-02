@@ -69,8 +69,8 @@ export default function Token() {
                 message
               </li>
               <li>
-                You can use this filter or customize chat based on that follow
-                date, such as only showing chat from users who have been
+                You can use this to filter or customize chat based on that
+                follow date, such as only showing chat from users who have been
                 following you for over 24 hours
               </li>
             </ul>
@@ -82,8 +82,8 @@ export default function Token() {
                 viewers to enter text
               </li>
               <li>
-                You can use this filter or customize chat based on channel point
-                redemptions
+                You can use this to filter or customize chat based on channel
+                point redemptions
               </li>
             </ul>
           </TokenPermission>
