@@ -48,8 +48,8 @@ export default function Token() {
       )}
 
       <p className='mt-5 rounded-lg border-2 border-rose-800 bg-rose-100 px-5 py-3'>
-        <strong>Do not show anyone your token</strong>. They can use it to gain
-        access to all of the permissions listed below for your channel.
+        <strong>Do not share your token with anyone</strong>. They can use it to
+        gain access to all of the permissions listed below for your channel.
       </p>
 
       <section className='mt-10 rounded-lg border-2 border-emerald-900 bg-emerald-700 p-5 text-lime-100'>
