@@ -26,9 +26,9 @@ export default function TokenShow({ token }: TokenShowProps) {
       </p>
       <Button
         className='mt-3 px-5 pb-3 pt-5'
-        href='https://forums.slime.chat/resources/getting-started-with-slimechat.3/'
+        href='https://forums.slime2.stream/resources/getting-started-with-slime2.3/'
       >
-        <ButtonText className='text-3xl'>SlimeChat Setup</ButtonText>
+        <ButtonText className='text-3xl'>Slime2 Setup</ButtonText>
       </Button>
     </div>
   )

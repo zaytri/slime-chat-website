@@ -6,7 +6,7 @@ import clsx from 'clsx'
 import fontClasses from '@/helpers/fonts'
 
 export const metadata = {
-  title: 'SlimeChat',
+  title: 'Slime2',
   description: "It's time for slime!",
   icons: {
     icon: [

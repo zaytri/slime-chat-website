@@ -3,18 +3,18 @@ import Button, { ButtonText } from '@/components/button'
 const links = [
   [
     'Getting Started',
-    'https://forums.slime.chat/resources/getting-started-with-slimechat.3/',
+    'https://forums.slime2.stream/resources/getting-started-with-slime2.3/',
   ],
-  ['Community Forums', 'https://forums.slime.chat/'],
-  ['Get Themes', 'https://forums.slime.chat/resources/categories/themes.2/'],
-  ['GitHub Source Code', 'https://github.com/zaytri/slime-chat'],
+  ['Community Forums', 'https://forums.slime2.stream/'],
+  ['Get Themes', 'https://forums.slime2.stream/resources/categories/themes.2/'],
+  ['GitHub Source Code', 'https://github.com/zaytri/slime2'],
 ]
 
 export default function Home() {
   return (
     <div className='space-y-5'>
       <h1 className='mb-7 text-center font-round text-3xl font-medium'>
-        Welcome to SlimeChat!
+        Welcome to Slime2!
       </h1>
       {links.map(([name, path]) => {
         return (

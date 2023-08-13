@@ -6,7 +6,7 @@ import TokenGenerate from './generate'
 import TokenShow from './show'
 import TokenPermission from './permission'
 
-const sessionStateKey = 'slime-chat-twitch-oauth-state'
+const sessionStateKey = 'slime2-twitch-oauth-state'
 
 export default function Token() {
   const [state, setState] = useState<string>()
