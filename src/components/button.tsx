@@ -13,7 +13,23 @@ export default function Button(props: React.PropsWithChildren<ButtonProps>) {
     <InternalButton
       {...props}
       className={clsx(
-        'btn-shadow-i block overflow-hidden rounded-2xl border-2 border-emerald-800 bg-gradient-to-b from-lime-600 to-emerald-700 text-center hover:from-lime-500 hover:to-emerald-600 focus:outline-offset-8 active:bg-gradient-to-t active:from-lime-600 active:to-emerald-700',
+        'btn-shadow-i flex justify-center gap-2 overflow-hidden rounded-2xl border-2 border-emerald-800 bg-gradient-to-b from-lime-600 to-emerald-700 text-center hover:from-lime-500 hover:to-emerald-600 focus:outline-offset-8 active:bg-gradient-to-t active:from-lime-600 active:to-emerald-700',
+        props.className,
+      )}
+    />
+  )
+}
+
+type ButtonIconProps = JSX.IntrinsicElements['span'] & {
+  className?: string
+}
+
+export function ButtonIcon(props: React.PropsWithChildren<ButtonIconProps>) {
+  return (
+    <span
+      {...props}
+      className={clsx(
+        'font-display font-semibold text-lime-100 drop-shadow drop-shadow-c-black/75 drop-shadow-y-0.5',
         props.className,
       )}
     />
