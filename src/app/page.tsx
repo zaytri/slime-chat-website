@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className='space-y-5'>
       <h1 className='mb-7 text-center font-round text-3xl font-medium'>
-        Welcome to Slime2!
+        Welcome to slime2!
       </h1>
       {links.map(([name, path]) => {
         return (

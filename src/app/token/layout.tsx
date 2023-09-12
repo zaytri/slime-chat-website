@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Token | Slime2',
+  title: 'slime2 token',
 }
 
 export default function TokenLayout({ children }: React.PropsWithChildren) {
