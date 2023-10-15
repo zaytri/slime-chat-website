@@ -6,7 +6,7 @@
     "dev": "npm run env-pull && next dev",
     "db-view": "npx prisma studio",
     "db-push": "npm run env-pull && npx prisma db push",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "env-pull": "vercel env pull .env"
