@@ -64,6 +64,8 @@ export default function Account() {
       setCode(codeParam)
       setProvider(providerParam as Provider)
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -126,8 +128,8 @@ export default function Account() {
   return (
     <div className='space-y-5'>
       <p className='rounded-lg border-2 border-rose-800 bg-rose-100 px-5 py-3 text-lg font-medium'>
-        <strong>Warning:</strong> This page is in beta. Do not use unless you've
-        been assigned as a tester by Zaytri.
+        <strong>Warning:</strong> This page is in beta. Do not use unless you
+        have been assigned as a tester by Zaytri.
       </p>
       {failed && (
         <p className='rounded-lg border-2 border-rose-800 bg-rose-100 px-5 py-3 text-lg font-medium'>
