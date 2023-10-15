@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Adapted from https://authjs.dev/reference/adapter/prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model User {
+  id        BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  provider          String
+  providerAccountId String @db.VarChar(255)
+
+  refreshToken String @db.VarChar(255)
+  accessToken  String @db.VarChar(255)
+  scope        String @db.Text
+
+  websiteToken        String   @unique
+  websiteTokenExpires DateTime
+
+  clientToken        String?   @unique
+  clientTokenExpires DateTime?
+
+  @@unique([provider, providerAccountId])
+  @@index([provider, providerAccountId])
+  @@index([websiteToken])
+  @@index([clientToken])
+}
