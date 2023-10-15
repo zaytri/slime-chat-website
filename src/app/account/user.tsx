@@ -140,7 +140,10 @@ export default function User({
             </div>
           )}
 
-          <Button className='px-5 pb-3 pt-5 text-3xl' onClick={download}>
+          <Button
+            className='px-5 pb-3 pt-5 text-3xl'
+            onClick={() => console.log('nothing yet')}
+          >
             <ButtonIcon>
               <Icon.HelpCircle width='1em' height='1em' strokeWidth={3} />
             </ButtonIcon>
