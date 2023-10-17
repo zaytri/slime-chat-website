@@ -32,14 +32,14 @@ export async function GET(request: NextRequest, { params }: AuthOptions) {
       scope,
     })
 
-    await prisma.user.update({
+    const { accessToken: newAccessToken } = await prisma.user.update({
       where: { id },
       data: {
         accessToken: newTokens.accessToken,
         refreshToken: newTokens.refreshToken,
         scope: newTokens.scope,
       },
-      select: {},
+      select: { accessToken: true },
     })
 
     const headers = new Headers()
@@ -47,7 +47,7 @@ export async function GET(request: NextRequest, { params }: AuthOptions) {
     headers.set('Access-Control-Allow-Methods', 'GET')
     headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
 
-    return NextResponse.json({ token: newTokens.accessToken }, { headers })
+    return NextResponse.json({ token: newAccessToken }, { headers })
   } catch (error) {
     console.error(error)
     return NextResponse.json({ error: '400 Bad Request' }, { status: 400 })
