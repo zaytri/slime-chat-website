@@ -3,6 +3,16 @@ import { NextRequest, NextResponse } from 'next/server'
 import { providerPathValidator } from '../../auth'
 import { createAuth } from '../../authProvider'
 
+const corsHeaders = new Headers()
+corsHeaders.set('Access-Control-Allow-Origin', '*')
+corsHeaders.set('Access-Control-Allow-Methods', 'GET, OPTIONS')
+corsHeaders.set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+
+// needed for CORS
+export async function OPTIONS() {
+  return NextResponse.json({}, { headers: corsHeaders })
+}
+
 // use clientToken (key) to get accessToken
 export async function GET(request: NextRequest, { params }: AuthOptions) {
   try {
@@ -42,12 +52,10 @@ export async function GET(request: NextRequest, { params }: AuthOptions) {
       select: { accessToken: true },
     })
 
-    const headers = new Headers()
-    headers.set('Access-Control-Allow-Origin', '*')
-    headers.set('Access-Control-Allow-Methods', 'GET, OPTIONS')
-    headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-
-    return NextResponse.json({ token: newAccessToken }, { headers })
+    return NextResponse.json(
+      { token: newAccessToken },
+      { headers: corsHeaders },
+    )
   } catch (error) {
     console.error(error)
     return NextResponse.json({ error: '400 Bad Request' }, { status: 400 })
