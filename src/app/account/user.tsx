@@ -52,7 +52,7 @@ export default function User({
 
       // https://stackoverflow.com/a/33542499
       const keyName = `slime2key_${provider}`
-      const blob = new Blob([`var ${keyName} = ${keyData.key}`], {
+      const blob = new Blob([`var ${keyName} = "${keyData.key}";`], {
         type: 'text/javascript',
       })
       const downloadElement = document.createElement('a')
