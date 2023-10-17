@@ -44,7 +44,7 @@ export async function GET(request: NextRequest, { params }: AuthOptions) {
 
     const headers = new Headers()
     headers.set('Access-Control-Allow-Origin', '*')
-    headers.set('Access-Control-Allow-Methods', 'GET')
+    headers.set('Access-Control-Allow-Methods', 'GET, OPTIONS')
     headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
 
     return NextResponse.json({ token: newAccessToken }, { headers })
