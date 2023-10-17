@@ -42,7 +42,12 @@ export async function GET(request: NextRequest, { params }: AuthOptions) {
       select: {},
     })
 
-    return NextResponse.json({ token: newTokens.accessToken })
+    const headers = new Headers()
+    headers.set('Access-Control-Allow-Origin', '*')
+    headers.set('Access-Control-Allow-Methods', 'GET')
+    headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+
+    return NextResponse.json({ token: newTokens.accessToken }, { headers })
   } catch (error) {
     console.error(error)
     return NextResponse.json({ error: '400 Bad Request' }, { status: 400 })
