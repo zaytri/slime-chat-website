@@ -2,6 +2,7 @@ import Button, { ButtonIcon, ButtonText } from '@/components/button'
 import Loading from '@/components/loading'
 import axios from 'axios'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import * as Icon from 'react-feather'
 
@@ -10,6 +11,7 @@ type UserProps = {
   provider: Provider
   image: string
   name: string
+  url: string
   keyExpiration: Date | null
   logout: (error?: boolean) => void
   setKeyExpiration: (date: Date) => void
@@ -26,6 +28,7 @@ export default function User({
   keyExpiration,
   logout,
   setKeyExpiration,
+  url,
 }: UserProps) {
   const [downloading, setDownloading] = useState(false)
   const [newKey, setNewKey] = useState(false)
@@ -76,24 +79,27 @@ export default function User({
     <div className='flex flex-col space-y-5'>
       <h1 className='text-center font-round text-4xl font-medium'>
         Welcome
-        <div className='relative mx-3 inline-block'>
-          <Image
-            src={image!}
-            alt='Your Profile Picture'
-            width={avatarSize}
-            height={avatarSize}
-            className='inline rounded-full'
-          />
-          <Image
-            src={`/assets/${
-              provider === 'google' ? 'youtube' : provider
-            }-logo.svg`}
-            height={providerLogoSize}
-            width={providerLogoSize}
-            alt='Stream Platform Logo'
-            className='absolute -bottom-px -right-1'
-          />
-        </div>
+        <Link href={url} target='_blank' className='underline'>
+          <div className='relative mx-3 inline-block'>
+            <Image
+              src={image!}
+              alt='Your Profile Picture'
+              width={avatarSize}
+              height={avatarSize}
+              className='inline rounded-full'
+            />
+
+            <Image
+              src={`/assets/${
+                provider === 'google' ? 'youtube' : provider
+              }-logo.svg`}
+              height={providerLogoSize}
+              width={providerLogoSize}
+              alt='Stream Platform Logo'
+              className='absolute -bottom-px -right-1'
+            />
+          </div>
+        </Link>
         {name}!
       </h1>
 

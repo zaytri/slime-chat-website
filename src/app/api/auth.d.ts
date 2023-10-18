@@ -34,6 +34,7 @@ type AuthLoginResponse = {
   jwt: string
   name: string
   image: string
+  url: string
 }
 
 type AuthKeyResponse = {

@@ -18,7 +18,12 @@ export async function POST(request: NextRequest, { params }: AuthOptions) {
 
     const tokens = await auth.getTokens(code)
     const { accessToken, refreshToken, scope } = tokens
-    const { id: providerAccountId, name, image } = await auth.getUser(tokens)
+    const {
+      id: providerAccountId,
+      name,
+      image,
+      url,
+    } = await auth.getUser(tokens)
 
     // create / update user
     const { websiteToken, clientTokenExpires } = await prisma.user.upsert({
@@ -47,6 +52,7 @@ export async function POST(request: NextRequest, { params }: AuthOptions) {
       jwt,
       name,
       image,
+      url,
     })
   } catch (error) {
     console.error(error)

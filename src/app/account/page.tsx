@@ -31,6 +31,7 @@ export default function Account() {
   const [jwt, setJWT] = useState<string>()
   const [name, setName] = useState<string>()
   const [image, setImage] = useState<string>()
+  const [url, setUrl] = useState<string>()
   const [failed, setFailed] = useState(false)
   const searchParams = useSearchParams()
 
@@ -45,6 +46,7 @@ export default function Account() {
     setJWT(undefined)
     setName(undefined)
     setImage(undefined)
+    setUrl(undefined)
     setFailed(error)
   }
 
@@ -80,6 +82,7 @@ export default function Account() {
         setImage(user.image)
         setName(user.name)
         setJWT(user.jwt)
+        setUrl(user.url)
       } catch {
         // unable to fetch user
         logout(true)
@@ -103,6 +106,7 @@ export default function Account() {
         keyExpiration={keyExpiration}
         logout={logout}
         setKeyExpiration={setKeyExpiration}
+        url={url!}
       />
     )
   }
