@@ -60,7 +60,6 @@ export class GoogleAuth extends Auth {
   async refreshTokens(tokens: AuthProviderToken): Promise<AuthProviderToken> {
     this.authClient.setCredentials(this.transformTokens(tokens))
     const { credentials } = await this.authClient.refreshAccessToken()
-    this.authClient.revokeCredentials()
 
     return this.transformCredentials(credentials)
   }
@@ -71,7 +70,6 @@ export class GoogleAuth extends Auth {
       mine: true,
       part: ['id', 'snippet'],
     })
-    this.authClient.revokeCredentials()
 
     const { items } = response.data
     if (!items) throw Error('YouTube channel not found')
