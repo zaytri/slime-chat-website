@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "npm run env-pull && next dev",
-    "db-view": "npx prisma studio",
+    "db-view": "npm run env-pull && npx prisma studio",
+    "db-view-production": "vercel env pull .env --environment=production && npx prisma studio",
     "db-push": "npm run env-pull && npx prisma db push",
     "build": "prisma generate && next build",
     "start": "next start",
