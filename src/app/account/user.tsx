@@ -79,7 +79,7 @@ export default function User({
     <div className='flex flex-col space-y-5'>
       <h1 className='text-center font-round text-4xl font-medium'>
         Welcome
-        <Link href={url} target='_blank' className='underline'>
+        <Link href={url} target='_blank'>
           <div className='relative mx-3 inline-block'>
             <Image
               src={image!}
