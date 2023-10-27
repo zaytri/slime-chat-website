@@ -54,13 +54,17 @@ export default function User({
       }
 
       // https://stackoverflow.com/a/33542499
-      const keyName = `slime2key_${provider}`
-      const blob = new Blob([`var ${keyName} = "${keyData.key}";`], {
+      const scriptText = [
+        "addEventListener('slime2:ready', () => {",
+        `  slime2.setKey('${provider}', '${keyData.key}')`,
+        '})',
+      ].join('\n')
+      const blob = new Blob([scriptText], {
         type: 'text/javascript',
       })
       const downloadElement = document.createElement('a')
       downloadElement.href = URL.createObjectURL(blob)
-      downloadElement.download = `${keyName}.js`
+      downloadElement.download = `SLIME2_${provider.toUpperCase()}_KEY.js`
       downloadElement.style.display = 'none'
       document.body.appendChild(downloadElement)
       downloadElement.click()
