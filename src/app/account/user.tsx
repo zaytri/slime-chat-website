@@ -54,11 +54,7 @@ export default function User({
       }
 
       // https://stackoverflow.com/a/33542499
-      const scriptText = [
-        "addEventListener('slime2:ready', () => {",
-        `  slime2.setKey('${provider}', '${keyData.key}')`,
-        '})',
-      ].join('\n')
+      const scriptText = `slime2.setKey('${provider}', '${keyData.key}')`
       const blob = new Blob([scriptText], {
         type: 'text/javascript',
       })
