@@ -13,7 +13,7 @@ const sessionStateKey = 'slime2-oauth-state'
 
 const links: LoginLink[] = [
   { provider: 'twitch', text: 'Twitch Login', icon: Icon.Twitch },
-  { provider: 'google', text: 'YouTube Login', icon: Icon.Youtube },
+  // { provider: 'google', text: 'YouTube Login', icon: Icon.Youtube },
 ]
 
 type LoginLink = {
@@ -131,10 +131,6 @@ export default function Account() {
 
   return (
     <div className='space-y-5'>
-      <p className='rounded-lg border-2 border-rose-800 bg-rose-100 px-5 py-3 text-lg font-medium'>
-        <strong>Warning:</strong> This page is in beta. Do not use unless you
-        have been assigned as a tester by Zaytri.
-      </p>
       {failed && (
         <p className='rounded-lg border-2 border-rose-800 bg-rose-100 px-5 py-3 text-lg font-medium'>
           Something went wrong, please login again.
