@@ -6,7 +6,8 @@ import { usePathname } from 'next/navigation'
 
 const links = [
   ['Home', '/'],
-  ['Token', '/token'],
+  // ['Token', '/token'],
+  ['Account', '/account'],
 ]
 
 export default function Navigation() {

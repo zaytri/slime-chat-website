@@ -2,17 +2,17 @@ import Button, { ButtonText } from '@/components/button'
 
 const links = [
   [
-    'Getting Started',
-    'https://forums.slime2.stream/resources/getting-started-with-slime2.3/',
+    'Widget Gallery',
+    'https://forums.slime2.stream/resources/categories/widgets.2/',
   ],
+  ['Widget Dev Docs', 'https://docs.slime2.stream/'],
   ['Community Forums', 'https://forums.slime2.stream/'],
-  ['Get Themes', 'https://forums.slime2.stream/resources/categories/themes.2/'],
-  ['GitHub Source Code', 'https://github.com/zaytri/slime2'],
+  ['GitHub Code', 'https://github.com/zaytri/slime2'],
 ]
 
 export default function Home() {
   return (
-    <div className='space-y-5'>
+    <div className='w-96 space-y-5'>
       <h1 className='mb-7 text-center font-round text-3xl font-medium'>
         Welcome to slime2!
       </h1>

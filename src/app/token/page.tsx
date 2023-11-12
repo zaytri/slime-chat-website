@@ -4,7 +4,8 @@ import { nanoid } from 'nanoid'
 import { useEffect, useState } from 'react'
 import TokenGenerate from './generate'
 import TokenShow from './show'
-import TokenPermission from './permission'
+import Permission from '../../components/permission'
+import TwitchPermissions from '@/components/twitch-permissions'
 
 const sessionStateKey = 'slime2-twitch-oauth-state'
 
@@ -52,43 +53,7 @@ export default function Token() {
         gain access to all of the permissions listed below for your channel.
       </p>
 
-      <section className='mt-10 rounded-lg border-2 border-emerald-900 bg-emerald-700 p-5 text-lime-100'>
-        <h2 className='mb-5 font-round text-2xl font-medium'>
-          Permissions Explanation
-        </h2>
-        <div className='space-y-3'>
-          <TokenPermission title='View stream chat messages'>
-            <ul className='ml-4 list-outside list-disc'>
-              <li>{`Used to get your stream's chat messages`}</li>
-            </ul>
-          </TokenPermission>
-          <TokenPermission title='View list of followers'>
-            <ul className='ml-4 list-outside list-disc'>
-              <li>
-                Used to get the follow date of a follower that has sent a chat
-                message
-              </li>
-              <li>
-                You can use this to filter or customize chat based on that
-                follow date, such as only showing chat from users who have been
-                following you for over 24 hours
-              </li>
-            </ul>
-          </TokenPermission>
-          <TokenPermission title='View channel point custom rewards'>
-            <ul className='ml-4 list-outside list-disc'>
-              <li>
-                Used to get the data of a channel point redemption that requires
-                viewers to enter text
-              </li>
-              <li>
-                You can use this to filter or customize chat based on channel
-                point redemptions
-              </li>
-            </ul>
-          </TokenPermission>
-        </div>
-      </section>
+      <TwitchPermissions />
     </>
   )
 }

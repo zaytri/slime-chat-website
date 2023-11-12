@@ -7,6 +7,7 @@ export default function Footer() {
       <Link
         href='https://zaytri.com/'
         className='text-lime-300 hover:underline'
+        target='_blank'
       >
         Zaytri
       </Link>

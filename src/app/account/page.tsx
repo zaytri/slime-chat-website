@@ -8,12 +8,13 @@ import Button, { ButtonIcon, ButtonText } from '@/components/button'
 import * as Icon from 'react-feather'
 import Loading from '@/components/loading'
 import User from './user'
+import TwitchPermissions from '@/components/twitch-permissions'
 
 const sessionStateKey = 'slime2-oauth-state'
 
 const links: LoginLink[] = [
-  { provider: 'twitch', text: 'Twitch Login', icon: Icon.Twitch },
-  // { provider: 'google', text: 'YouTube Login', icon: Icon.Youtube },
+  { provider: 'twitch', text: 'Twitch', icon: Icon.Twitch },
+  // { provider: 'google', text: 'YouTube', icon: Icon.Youtube },
 ]
 
 type LoginLink = {
@@ -98,16 +99,19 @@ export default function Account() {
 
   if (jwt && !failed) {
     return (
-      <User
-        jwt={jwt}
-        image={image!}
-        provider={provider!}
-        name={name!}
-        keyExpiration={keyExpiration}
-        logout={logout}
-        setKeyExpiration={setKeyExpiration}
-        url={url!}
-      />
+      <>
+        <User
+          jwt={jwt}
+          image={image!}
+          provider={provider!}
+          name={name!}
+          keyExpiration={keyExpiration}
+          logout={logout}
+          setKeyExpiration={setKeyExpiration}
+          url={url!}
+        />
+        <TwitchPermissions />
+      </>
     )
   }
 
@@ -131,6 +135,9 @@ export default function Account() {
 
   return (
     <div className='space-y-5'>
+      <h1 className='mb-7 text-center font-round text-3xl font-medium'>
+        Account Login
+      </h1>
       {failed && (
         <p className='rounded-lg border-2 border-rose-800 bg-rose-100 px-5 py-3 text-lg font-medium'>
           Something went wrong, please login again.
@@ -143,14 +150,16 @@ export default function Account() {
             className='px-5 pb-3 pt-5 text-3xl'
             href={loginLink(provider)}
             onClick={onLoginClick}
+            internalLink
           >
-            <ButtonIcon>
+            <ButtonIcon className='pr-1'>
               <LogoIcon width='1em' height='1em' />
             </ButtonIcon>
             <ButtonText>{text}</ButtonText>
           </Button>
         )
       })}
+      <TwitchPermissions />
     </div>
   )
 }

@@ -44,12 +44,6 @@ export default function TokenShow({ token }: TokenShowProps) {
       <p className='mt-3 break-all rounded-lg border-2 border-lime-700 bg-lime-100 px-5 py-3 text-center text-xl'>
         <strong>{visible ? token : '**************************'}</strong>
       </p>
-      <Button
-        className='mt-3 px-5 pb-3 pt-5'
-        href='https://forums.slime2.stream/resources/getting-started-with-slime2.3/'
-      >
-        <ButtonText className='text-3xl'>Slime2 Setup</ButtonText>
-      </Button>
     </div>
   )
 }

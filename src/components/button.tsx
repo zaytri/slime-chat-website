@@ -1,12 +1,12 @@
 import Link, { LinkProps } from 'next/link'
 import clsx from 'clsx'
 
-type ButtonProps = (
-  | LinkProps
-  | (JSX.IntrinsicElements['button'] & {
-      href?: undefined
-    })
-) & { className?: string }
+type ButtonProps = {
+  className?: string
+  internalLink?: boolean
+  href?: string
+  onClick?: () => void
+}
 
 export default function Button(props: React.PropsWithChildren<ButtonProps>) {
   return (
@@ -52,10 +52,14 @@ export function ButtonText(props: React.PropsWithChildren<ButtonTextProps>) {
   )
 }
 
-function InternalButton(props: React.PropsWithChildren<ButtonProps>) {
-  if (props.href === undefined) {
+function InternalButton({
+  href,
+  internalLink: internal,
+  ...props
+}: React.PropsWithChildren<ButtonProps>) {
+  if (href === undefined) {
     return <button type='button' {...props} />
   }
 
-  return <Link {...props} />
+  return <Link href={href} target={internal ? '_self' : '_blank'} {...props} />
 }

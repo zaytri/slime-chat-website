@@ -3,7 +3,7 @@ import Loading from '@/components/loading'
 import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import * as Icon from 'react-feather'
 
 type UserProps = {
@@ -35,6 +35,11 @@ export default function User({
 
   const currentDate = new Date()
   const activeKey = keyExpiration && keyExpiration > currentDate
+
+  useEffect(() => {
+    // clean URL
+    window.history.replaceState(null, '', window.location.pathname)
+  }, [])
 
   async function download() {
     setDownloading(true)
@@ -114,6 +119,27 @@ export default function User({
             <ButtonText>Download New Key</ButtonText>
           </Button>
 
+          <p className='mt-5 rounded-lg border-2 border-amber-800 bg-amber-100 px-5 py-3'>
+            <strong>
+              ⚠️ Downloading a new key will expire all previous keys.
+            </strong>
+            <br />
+            <br />
+            Download a new key if you don't yet have one or your current one has
+            expired. If you already have a working key downloaded, you can copy
+            it into other widgets.
+          </p>
+
+          <Button
+            className='px-5 pb-3 pt-5 text-3xl'
+            href='https://forums.slime2.stream/resources/setting-up-slime2-widgets.3/'
+          >
+            <ButtonIcon>
+              <Icon.HelpCircle width='1em' height='1em' strokeWidth={3} />
+            </ButtonIcon>
+            <ButtonText>How to Use Key</ButtonText>
+          </Button>
+
           {keyExpiration && (
             <div className='space-y-3 rounded-lg border-2 border-lime-700 bg-lime-200 p-5 pb-4 text-center'>
               <h2 className='font-round text-3xl font-medium'>Key Status</h2>
@@ -145,16 +171,6 @@ export default function User({
               )}
             </div>
           )}
-
-          <Button
-            className='px-5 pb-3 pt-5 text-3xl'
-            onClick={() => console.log('nothing yet')}
-          >
-            <ButtonIcon>
-              <Icon.HelpCircle width='1em' height='1em' strokeWidth={3} />
-            </ButtonIcon>
-            <ButtonText>How to Use Key</ButtonText>
-          </Button>
 
           <Button className='px-5 pb-3 pt-5 text-3xl' onClick={() => logout()}>
             <ButtonIcon>

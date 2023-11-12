@@ -28,6 +28,7 @@ export default function TokenGenerate({ oauthState }: TokenGenerateProps) {
     <Button
       className='px-5 pb-3 pt-5'
       href={`${twitchAuthorizeUrl}?${searchParams.toString()}`}
+      internalLink
     >
       <ButtonText className='text-3xl'>Generate Token</ButtonText>
     </Button>
