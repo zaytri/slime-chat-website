@@ -125,9 +125,9 @@ export default function User({
             </strong>
             <br />
             <br />
-            Download a new key if you don't yet have one or your current one has
-            expired. If you already have a working key downloaded, you can copy
-            it into other widgets.
+            Download a new key if you do not yet have one or your current one
+            has expired. If you already have a working key downloaded, you can
+            copy it into other widgets.
           </p>
 
           <Button
