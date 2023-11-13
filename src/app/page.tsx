@@ -2,6 +2,10 @@ import Button, { ButtonText } from '@/components/button'
 
 const links = [
   [
+    'What is slime2?',
+    'https://forums.slime2.stream/threads/what-is-slime2.36/',
+  ],
+  [
     'Widget Gallery',
     'https://forums.slime2.stream/resources/categories/widgets.2/',
   ],
