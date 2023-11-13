@@ -12,7 +12,7 @@ const links = [
 
 export default function Home() {
   return (
-    <div className='w-96 space-y-5'>
+    <div className='space-y-5'>
       <h1 className='mb-7 text-center font-round text-3xl font-medium'>
         Welcome to slime2!
       </h1>
