@@ -10,6 +10,14 @@ export default function Footer() {
         target='_blank'
       >
         Zaytri
+      </Link>{' '}
+      |{' '}
+      <Link href='/privacy' className='text-lime-300 hover:underline'>
+        Privacy Policy
+      </Link>{' '}
+      |{' '}
+      <Link href='/tos' className='text-lime-300 hover:underline'>
+        Terms of Service
       </Link>
     </footer>
   )
