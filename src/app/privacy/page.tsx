@@ -26,14 +26,14 @@ export default function PrivacyPolicy() {
               <li>
                 While using this website, your data is used to identify you so
                 that you can download a platform key specific to you. You will
-                not have access to anyone else's platform keys.
+                not have access to anyone else&apos;s platform keys.
               </li>
               <li>
                 When you add a platform key to a slime2 widget folder, the
                 slime2 app will then use that platform key to retrieve your live
                 streaming data. You can always opt out of this by simply
                 deleting the key. Your live streaming data will only be used by
-                the slime2 app while the widget's HTML file is open.
+                the slime2 app while the widget&apos;s HTML file is open.
               </li>
               <li>
                 A slime2 widget can be developed by anyone. The slime2 app
