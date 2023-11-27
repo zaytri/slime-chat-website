@@ -1,4 +1,5 @@
 import Button, { ButtonText } from '@/components/button'
+import prisma from '@/helpers/database'
 
 const links = [
   [
@@ -14,12 +15,18 @@ const links = [
   ['GitHub Code', 'https://github.com/zaytri/slime2'],
 ]
 
-export default function Home() {
+export default async function Home() {
+  const userCount = await prisma.user.count()
+
   return (
-    <div className='space-y-5'>
-      <h1 className='mb-7 text-center font-round text-3xl font-medium'>
-        Welcome to slime2!
-      </h1>
+    <div className='space-y-5 text-center font-round'>
+      <h1 className='text-3xl font-medium'>Welcome to slime2!</h1>
+      <p className='!mt-2'>
+        A service for Twitch chat widgets that run locally on your computer!
+      </p>
+      <p>
+        Used by <strong className='font-medium'>{userCount}</strong> streamers!
+      </p>
       {links.map(([name, path]) => {
         return (
           <Button key={name} className='px-5 pb-3 pt-5' href={path}>
