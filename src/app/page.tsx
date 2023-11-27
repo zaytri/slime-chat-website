@@ -1,5 +1,5 @@
 import Button, { ButtonText } from '@/components/button'
-import prisma from '@/helpers/database'
+import { getUserCount } from '@/helpers/getUserCount'
 
 const links = [
   [
@@ -16,7 +16,7 @@ const links = [
 ]
 
 export default async function Home() {
-  const userCount = await prisma.user.count()
+  const userCount = await getUserCount()
 
   return (
     <div className='space-y-5 text-center font-round'>
