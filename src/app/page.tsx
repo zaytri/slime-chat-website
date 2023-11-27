@@ -1,5 +1,7 @@
 import Button, { ButtonText } from '@/components/button'
-import { getUserCount } from '@/helpers/getUserCount'
+import prisma from '@/helpers/database'
+
+export const revalidate = 300 // revalidate the data at most every 5 minutes
 
 const links = [
   [
@@ -16,7 +18,7 @@ const links = [
 ]
 
 export default async function Home() {
-  const userCount = await getUserCount()
+  const userCount = await prisma.user.count()
 
   return (
     <div className='space-y-5 text-center font-round'>
