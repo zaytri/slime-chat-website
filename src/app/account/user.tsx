@@ -86,7 +86,7 @@ export default function User({
         Welcome
         <Link href={url} target='_blank'>
           <div className='relative mx-3 inline-block'>
-            <Image
+            <img
               src={image!}
               alt='Your Profile Picture'
               width={avatarSize}
