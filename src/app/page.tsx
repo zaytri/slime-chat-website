@@ -5,15 +5,15 @@ export const revalidate = 300 // revalidate the data at most every 5 minutes
 
 const links = [
   [
-    'What is slime2?',
-    'https://forums.slime2.stream/threads/what-is-slime2.36/',
-  ],
-  [
     'Widget Gallery',
     'https://forums.slime2.stream/resources/categories/widgets.2/',
   ],
   ['Widget Dev Docs', 'https://docs.slime2.stream/'],
   ['Community Forums', 'https://forums.slime2.stream/'],
+  [
+    'What is slime2?',
+    'https://forums.slime2.stream/threads/what-is-slime2.36/',
+  ],
   ['GitHub Code', 'https://github.com/zaytri/slime2'],
 ]
 
@@ -26,8 +26,9 @@ export default async function Home() {
       <p className='!mt-2'>
         A service for Twitch chat widgets that run locally on your computer!
       </p>
-      <p>
-        Used by <strong className='font-medium'>{userCount}</strong> streamers!
+      <p className='text-xl'>
+        Used by <strong className='text-2xl font-medium'>{userCount}</strong>{' '}
+        streamers!
       </p>
       {links.map(([name, path]) => {
         return (
