@@ -8,6 +8,7 @@ const links = [
     'Widget Gallery',
     'https://forums.slime2.stream/resources/categories/widgets.2/',
   ],
+  ['Widget Setup', 'https://forums.slime2.stream/resources/widget-setup.3/'],
   ['Widget Dev Docs', 'https://docs.slime2.stream/'],
   ['Community Forums', 'https://forums.slime2.stream/'],
   [
