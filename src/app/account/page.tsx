@@ -5,8 +5,7 @@ import Image from 'next/image'
 import { nanoid } from 'nanoid'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import Button, { ButtonIcon, ButtonText } from '@/components/button'
-import * as Icon from 'react-feather'
+import Button, { ButtonText } from '@/components/button'
 import Loading from '@/components/loading'
 import User from './user'
 import TwitchPermissions from '@/components/twitch-permissions'
@@ -149,7 +148,7 @@ export default function Account() {
       )}
       {links.map(({ provider, text, icon }) => {
         return (
-          <div className='flex gap-5'>
+          <div key={provider} className='flex gap-5'>
             <Image
               src={icon}
               alt=''
@@ -158,7 +157,6 @@ export default function Account() {
               height={48}
             />
             <Button
-              key={provider}
               className='flex-1 px-5 pb-3 pt-5 text-3xl'
               href={loginLink(provider)}
               onClick={() => {
