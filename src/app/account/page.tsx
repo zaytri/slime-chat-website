@@ -1,6 +1,7 @@
 'use client'
 
 import axios from 'axios'
+import Image from 'next/image'
 import { nanoid } from 'nanoid'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -13,14 +14,14 @@ import TwitchPermissions from '@/components/twitch-permissions'
 const sessionStateKey = 'slime2-oauth-state'
 
 const links: LoginLink[] = [
-  { provider: 'twitch', text: 'Twitch', icon: Icon.Twitch },
-  // { provider: 'google', text: 'YouTube', icon: Icon.Youtube },
+  { provider: 'twitch', text: 'Twitch', icon: 'assets/twitch-logo.svg' },
+  { provider: 'google', text: 'YouTube', icon: 'assets/youtube-logo.svg' },
 ]
 
 type LoginLink = {
   provider: Provider
   text: string
-  icon: Icon.Icon
+  icon: string
 }
 
 export default function Account() {
@@ -122,11 +123,14 @@ export default function Account() {
 
   const loginSearchParams = new URLSearchParams({ state })
   function loginLink(provider: Provider) {
+    if (provider === 'google') return undefined
     return `/api/auth/${provider}?${loginSearchParams.toString()}`
   }
 
-  function onLoginClick() {
-    setLoginClicked(true)
+  function onLoginClick(provider: Provider) {
+    if (provider === 'google') {
+      alert('Currently in closed beta testing!')
+    } else setLoginClicked(true)
   }
 
   if (loginClicked && !failed) {
@@ -143,20 +147,28 @@ export default function Account() {
           Something went wrong, please login again.
         </p>
       )}
-      {links.map(({ provider, text, icon: LogoIcon }) => {
+      {links.map(({ provider, text, icon }) => {
         return (
-          <Button
-            key={provider}
-            className='px-5 pb-3 pt-5 text-3xl'
-            href={loginLink(provider)}
-            onClick={onLoginClick}
-            internalLink
-          >
-            <ButtonIcon className='pr-1'>
-              <LogoIcon width='1em' height='1em' />
-            </ButtonIcon>
-            <ButtonText>{text}</ButtonText>
-          </Button>
+          <div className='flex gap-5'>
+            <Image
+              src={icon}
+              alt=''
+              className='-mt-1 object-contain text-white'
+              width={48}
+              height={48}
+            />
+            <Button
+              key={provider}
+              className='flex-1 px-5 pb-3 pt-5 text-3xl'
+              href={loginLink(provider)}
+              onClick={() => {
+                onLoginClick(provider)
+              }}
+              internalLink
+            >
+              <ButtonText>{text} Account</ButtonText>
+            </Button>
+          </div>
         )
       })}
       <TwitchPermissions />
