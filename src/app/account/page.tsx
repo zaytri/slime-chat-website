@@ -138,9 +138,20 @@ export default function Account() {
 
   return (
     <div className='space-y-5'>
-      <h1 className='mb-7 text-center font-round text-3xl font-medium'>
+      <h1 className='text-center font-round text-3xl font-medium'>
         Account Login
       </h1>
+      <p className='!mt-2 text-center'>
+        By logging in, you agree to the{' '}
+        <a className=' text-green-700 underline' href='/privacy'>
+          Privacy Policy
+        </a>{' '}
+        and{' '}
+        <a className='text-green-700 underline' href='/tos'>
+          Terms of Service
+        </a>
+        .
+      </p>
       {failed && (
         <p className='rounded-lg border-2 border-rose-800 bg-rose-100 px-5 py-3 text-lg font-medium'>
           Something went wrong, please login again.
