@@ -33,10 +33,10 @@ export default function Account() {
   const [name, setName] = useState<string>()
   const [image, setImage] = useState<string>()
   const [url, setUrl] = useState<string>()
-  const [failed, setFailed] = useState(false)
+  const [info, setInfo] = useState('')
   const searchParams = useSearchParams()
 
-  function logout(error: boolean = false) {
+  function logout(logoutInfo: string = '') {
     // clean URL
     window.history.replaceState(null, '', window.location.pathname)
 
@@ -48,7 +48,7 @@ export default function Account() {
     setName(undefined)
     setImage(undefined)
     setUrl(undefined)
-    setFailed(error)
+    setInfo(logoutInfo)
   }
 
   useEffect(() => {
@@ -86,7 +86,7 @@ export default function Account() {
         setUrl(user.url)
       } catch {
         // unable to fetch user
-        logout(true)
+        logout('Something went wrong, please login again.')
       }
     }
 
@@ -97,7 +97,7 @@ export default function Account() {
 
   if (!state) return null
 
-  if (jwt && !failed) {
+  if (jwt && !info) {
     return (
       <>
         <User
@@ -110,12 +110,11 @@ export default function Account() {
           setKeyExpiration={setKeyExpiration}
           url={url!}
         />
-        <TwitchPermissions />
       </>
     )
   }
 
-  if (code && provider && !failed) {
+  if (code && provider && !info) {
     // authorization code successfully obtained
     return <Loading message='Verifying Authorization...' />
   }
@@ -132,7 +131,7 @@ export default function Account() {
     } else setLoginClicked(true)
   }
 
-  if (loginClicked && !failed) {
+  if (loginClicked && !info) {
     return <Loading message='Redirecting to Authorization...' />
   }
 
@@ -152,9 +151,9 @@ export default function Account() {
         </a>
         .
       </p>
-      {failed && (
-        <p className='rounded-lg border-2 border-rose-800 bg-rose-100 px-5 py-3 text-lg font-medium'>
-          Something went wrong, please login again.
+      {info && (
+        <p className='rounded-lg border-2 border-rose-800 bg-rose-100 px-5 py-3 text-center text-lg'>
+          {info}
         </p>
       )}
       {links.map(({ provider, text, icon }) => {
