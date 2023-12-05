@@ -131,13 +131,14 @@ export default function PrivacyPolicy() {
               <li>
                 If you have any questions or concerns about slime2&apos;s
                 privacy practices, please make a post in the slime2 community
-                forum here:{' '}
+                forum{' '}
                 <a
                   className='text-green-700 underline'
                   href='https://forums.slime2.stream/forums/suggestions.14/'
                 >
-                  https://forums.slime2.stream/forums/suggestions.14/
+                  here
                 </a>
+                .
               </li>
             </ul>
           </Permission>
