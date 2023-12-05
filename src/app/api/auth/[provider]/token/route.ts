@@ -1,6 +1,6 @@
 import prisma from '@/helpers/database'
 import { NextRequest, NextResponse } from 'next/server'
-import { providerPathValidator } from '../../auth'
+import { generateClientToken, providerPathValidator } from '../../auth'
 import { createAuth } from '../../authProvider'
 
 const corsHeaders = new Headers()
@@ -25,11 +25,12 @@ export async function GET(request: NextRequest, { params }: AuthOptions) {
 
     const key = authorization.split(' ')[1] // remove 'Bearer '
 
-    const { id, refreshToken, accessToken, scope } =
+    const { id, providerAccountId, refreshToken, accessToken, scope } =
       await prisma.user.findUniqueOrThrow({
         where: { clientToken: key, clientTokenExpires: { gt: new Date() } },
         select: {
           id: true,
+          providerAccountId: true,
           refreshToken: true,
           accessToken: true,
           scope: true,
@@ -42,12 +43,16 @@ export async function GET(request: NextRequest, { params }: AuthOptions) {
       scope,
     })
 
+    const keyData = generateClientToken(provider, providerAccountId)
+
     const { accessToken: newAccessToken } = await prisma.user.update({
       where: { id },
       data: {
         accessToken: newTokens.accessToken,
         refreshToken: newTokens.refreshToken,
         scope: newTokens.scope,
+        // refresh expiration date
+        clientTokenExpires: keyData.clientTokenExpires,
       },
       select: { accessToken: true },
     })
