@@ -102,7 +102,7 @@ export default function User({
   }
 
   return (
-    <div className='flex flex-col space-y-5'>
+    <div className='flex max-w-lg flex-col space-y-5'>
       <h1 className='text-center font-round text-4xl font-medium'>
         Welcome
         <Link href={url} target='_blank'>

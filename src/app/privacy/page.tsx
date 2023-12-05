@@ -4,14 +4,12 @@ import Permission from '@/components/permission'
 
 export default function PrivacyPolicy() {
   return (
-    <div className='space-y-5'>
-      <h1 className='mb-7 text-center font-round text-3xl font-medium'>
-        Privacy Policy
-      </h1>
+    <div className='max-w-5xl space-y-5'>
+      <h1 className='mb-7 text-center text-3xl font-bold'>Privacy Policy</h1>
       <section className='mt-10 rounded-lg border-2 border-emerald-900 bg-emerald-700 p-5 text-lime-100'>
         <div className='space-y-3'>
           <Permission title='How your data is collected'>
-            <ul className='ml-4 list-outside list-disc'>
+            <ul className='ml-4 flex list-outside list-disc flex-col gap-2'>
               <li>
                 slime2 will only ever store the bare minimum data required to
                 let slime2 widgets access the authorized parts of the Twitch or

@@ -26,7 +26,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
     >
       <body className='flex h-screen flex-col items-center bg-lime-100 px-5'>
         <Header />
-        <main className='max-w-lg flex-1 flex-col pt-10'>{children}</main>
+        <main className='flex-1 flex-col pt-10'>{children}</main>
         <Footer />
       </body>
     </html>

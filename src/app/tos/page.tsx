@@ -4,14 +4,12 @@ import Permission from '@/components/permission'
 
 export default function ToS() {
   return (
-    <div className='space-y-5'>
-      <h1 className='mb-7 text-center font-round text-3xl font-medium'>
-        Terms of Service
-      </h1>
+    <div className='max-w-5xl space-y-5'>
+      <h1 className='mb-7 text-center text-3xl font-bold'>Terms of Service</h1>
       <section className='mt-10 rounded-lg border-2 border-emerald-900 bg-emerald-700 p-5 text-lime-100'>
         <div className='space-y-3'>
           <Permission title='Bans'>
-            <ul className='ml-4 list-outside list-disc'>
+            <ul className='ml-4 flex list-outside list-disc flex-col gap-2'>
               <li>
                 slime2 has the right to deny service to you at any time, for
                 reasons that include but are not limited to violating these

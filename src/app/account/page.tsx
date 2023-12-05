@@ -136,7 +136,7 @@ export default function Account() {
   }
 
   return (
-    <div className='space-y-5'>
+    <div className='max-w-lg space-y-5'>
       <h1 className='text-center font-round text-3xl font-medium'>
         Account Login
       </h1>
@@ -179,7 +179,7 @@ export default function Account() {
           </div>
         )
       })}
-      <TwitchPermissions />
+      {/* <TwitchPermissions /> */}
     </div>
   )
 }
