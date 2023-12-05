@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'slime2 terms of service',
+  title: 'Terms of Service ~ slime2',
 }
 
 export default function ToSLayout({ children }: React.PropsWithChildren) {

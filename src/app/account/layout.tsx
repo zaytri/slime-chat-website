@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'slime2 account',
+  title: 'Account ~ slime2',
 }
 
 export default async function AccountLayout({

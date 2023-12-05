@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'slime2 privacy policy',
+  title: 'Privacy Policy ~ slime2',
 }
 
 export default function PrivacyPolicyLayout({
