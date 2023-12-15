@@ -110,7 +110,7 @@ export default function User({
             <Image
               unoptimized
               src={image!}
-              alt='Your Profile Picture'
+              alt=''
               width={avatarSize}
               height={avatarSize}
               className='inline rounded-full'
@@ -122,7 +122,7 @@ export default function User({
               }-logo.svg`}
               height={providerLogoSize}
               width={providerLogoSize}
-              alt='Stream Platform Logo'
+              alt=''
               className='absolute -bottom-px -right-1'
             />
           </div>
@@ -132,6 +132,16 @@ export default function User({
 
       {loading || (
         <>
+          {provider === 'google' && (
+            <p className='mt-5 rounded-lg border-2 border-amber-800 bg-amber-100 px-5 py-3'>
+              <strong className='font-semibold'>
+                ⚠️ YouTube support is still in development!
+              </strong>
+              <br />
+              <br />
+              You can download a YouTube key but it won't do anything.
+            </p>
+          )}
           <Button
             className='px-5 pb-3 pt-5 text-3xl'
             href='https://forums.slime2.stream/resources/setting-up-slime2-widgets.3/'
@@ -169,7 +179,7 @@ export default function User({
           </Button>
 
           <p className='mt-5 rounded-lg border-2 border-amber-800 bg-amber-100 px-5 py-3'>
-            <strong>
+            <strong className='font-semibold'>
               ⚠️ Downloading a new key will expire all previous keys.
             </strong>
             <br />

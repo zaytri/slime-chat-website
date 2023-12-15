@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react'
 import Button, { ButtonText } from '@/components/button'
 import Loading from '@/components/loading'
 import User from './user'
-import TwitchPermissions from '@/components/twitch-permissions'
 
 const sessionStateKey = 'slime2-oauth-state'
 
@@ -121,14 +120,11 @@ export default function Account() {
 
   const loginSearchParams = new URLSearchParams({ state })
   function loginLink(provider: Provider) {
-    if (provider === 'google') return undefined
     return `/api/auth/${provider}?${loginSearchParams.toString()}`
   }
 
   function onLoginClick(provider: Provider) {
-    if (provider === 'google') {
-      alert('Currently in closed beta testing!')
-    } else setLoginClicked(true)
+    setLoginClicked(true)
   }
 
   if (loginClicked && !info) {
@@ -179,6 +175,14 @@ export default function Account() {
           </div>
         )
       })}
+      <p className='mt-5 rounded-lg border-2 border-amber-800 bg-amber-100 px-5 py-3'>
+        <strong className='font-semibold'>
+          ⚠️ YouTube support is still in development!
+        </strong>
+        <br />
+        <br />
+        The login button here is just for dev testing purposes.
+      </p>
       {/* <TwitchPermissions /> */}
     </div>
   )
