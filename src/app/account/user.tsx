@@ -139,7 +139,7 @@ export default function User({
               </strong>
               <br />
               <br />
-              You can download a YouTube key but it won't do anything.
+              You can download a YouTube key but it won&apos;t do anything.
             </p>
           )}
           <Button
